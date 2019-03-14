@@ -1,4 +1,4 @@
-# P3-DSBM-Semaforo
+# DSBM-P3_Semaforo
 Develop of a simple semaphore with leds on a STM32F411RE Board and a ProtoBoard
 
 Uso de STM32CUBEMX para hacer el esqueleto del código.
