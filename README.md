@@ -6,3 +6,5 @@ Uso de PlatformIO para programar.
 
 -Version 0.0
 Proyecto preparado para empezar a programar tras la integración del esqueleto en PlatformIO
+
+//MIRAR LA LINEA 234 del archivo main.c del ejemploboton de la carpeta ejercicios
