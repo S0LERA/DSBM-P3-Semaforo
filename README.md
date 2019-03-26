@@ -12,3 +12,6 @@ Semaforo implementado sin la funcionalidad del botón.
 
 -Versión 1.5
 Cambiado el patrón del programa a máquina de estados (botón sin funcionalidad).
+
+-Versión 1.5.5
+Intento de funcionalidad del botón.

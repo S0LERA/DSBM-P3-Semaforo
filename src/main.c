@@ -67,7 +67,6 @@ int main(void)
 {
 	int counter = 0;
 	int modo = 0;
-	//int pulsado = 0;
 	//int mask = 0b0;
 	/* USER CODE BEGIN 1 */
 
@@ -101,12 +100,15 @@ int main(void)
 
 	while (1)
 	{
+		//A5___Boton_GPIO_Port->IDR&=~GPIO_IDR_ID0_Msk;
 		switch (modo) {
 			default:
 			HAL_GPIO_WritePin(D10___Led_GPIO_Port, D10___Led_Pin, GPIO_PIN_SET); //Verde Coches
 			HAL_GPIO_WritePin(D11___Led_GPIO_Port, D11___Led_Pin, GPIO_PIN_SET); //Rojo Peatones
-			//if(algo) modo = 1;
-			modo = 1; /* Para probar que funciona */
+			if(A5___Boton_GPIO_Port->IDR&GPIO_IDR_ID0_Msk){
+				modo = 1;
+			}
+			//modo = 1; /* Para probar que funciona */
 			break;
 			case 1:
 			counter = 0;
