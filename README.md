@@ -9,3 +9,6 @@ Proyecto preparado para empezar a programar tras la integración del esqueleto e
 
 -Version 1.0
 Semaforo implementado sin la funcionalidad del botón.
+
+-Versión 1.5
+Cambiado el patrón del programa a máquina de estados (botón sin funcionalidad).
