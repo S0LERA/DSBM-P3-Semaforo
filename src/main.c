@@ -65,7 +65,7 @@ static void MX_GPIO_Init(void);
 */
 int main(void)
 {
-	int counter = 0;
+	int counter_parpadeo = 0;
 	int modo = 0;
 	//int mask = 0b0;
 	/* USER CODE BEGIN 1 */
@@ -100,18 +100,16 @@ int main(void)
 
 	while (1)
 	{
-		//A5___Boton_GPIO_Port->IDR&=~GPIO_IDR_ID0_Msk;
 		switch (modo) {
 			default:
 			HAL_GPIO_WritePin(D10___Led_GPIO_Port, D10___Led_Pin, GPIO_PIN_SET); //Verde Coches
 			HAL_GPIO_WritePin(D11___Led_GPIO_Port, D11___Led_Pin, GPIO_PIN_SET); //Rojo Peatones
-			if(A5___Boton_GPIO_Port->IDR&GPIO_IDR_ID0_Msk){
+			if(GPIOA->IDR&GPIO_IDR_ID0_Msk){
 				modo = 1;
 			}
-			//modo = 1; /* Para probar que funciona */
 			break;
 			case 1:
-			counter = 0;
+			counter_parpadeo = 0;
 			HAL_Delay(3000);
 			HAL_GPIO_WritePin(D10___Led_GPIO_Port, D10___Led_Pin, GPIO_PIN_RESET); // Apagamos verde coches
 			HAL_GPIO_WritePin(D9___Led_GPIO_Port, D9___Led_Pin, GPIO_PIN_SET); //Encendemos amarillo coches
@@ -123,16 +121,16 @@ int main(void)
 			HAL_GPIO_WritePin(D8___Led_GPIO_Port, D8___Led_Pin, GPIO_PIN_SET); //Encendemos rojo coches
 			HAL_GPIO_WritePin(D11___Led_GPIO_Port, D11___Led_Pin, GPIO_PIN_RESET); //Apagamos rojo peatones
 			HAL_GPIO_WritePin(D12___Led_GPIO_Port, D12___Led_Pin, GPIO_PIN_SET); //Encendemos verde peatones
-			HAL_Delay(1500);
+			HAL_Delay(15000);
 			modo = 3;
 			break;
 			case 3:
-			while(counter<15){
+			while(counter_parpadeo<15){
 				HAL_GPIO_WritePin(D12___Led_GPIO_Port, D12___Led_Pin, GPIO_PIN_RESET); //Apagar verde peatones
 				HAL_Delay(100);
 				HAL_GPIO_WritePin(D12___Led_GPIO_Port, D12___Led_Pin, GPIO_PIN_SET); //Encendemos verde peatones
 				HAL_Delay(100);
-				counter++;
+				counter_parpadeo++;
 			}
 			modo = 4;
 			break;
@@ -145,12 +143,6 @@ int main(void)
 			break;
 		}
 
-		//if(A5___Boton_GPIO_Port->ODR&GPIO_ODR_OD0_Msk || pulsado == 1){ //PULSAR BOTON
-		//if(HAL_GPIO_ReadPin(A5___Boton_GPIO_Port, GPIO_PIN_0)){
-		//	pulsado = 1;
-
-		//	pulsado = 0;
-		//}
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

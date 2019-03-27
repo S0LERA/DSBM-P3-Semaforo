@@ -15,3 +15,6 @@ Cambiado el patrón del programa a máquina de estados (botón sin funcionalidad
 
 -Versión 1.5.5
 Intento de funcionalidad del botón.
+
+-Version 2.0
+Práctica finalizada, la funcionalidad del botón ha sido desarrollada con el botón de la shell.
